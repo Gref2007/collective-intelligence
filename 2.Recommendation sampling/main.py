@@ -1,16 +1,12 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
+import recommendations
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print(recommendations.critics["Lisa Rose"]["Lady in the Water"])
+    print(recommendations.sim_distance(recommendations.critics,"Mick LaSalle", "Jack Matthews"))
+    print(recommendations.sim_person(recommendations.critics, "Mick LaSalle", "Jack Matthews"))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print(recommendations.topMatches(recommendations.critics,"Toby", 3))
+    print(recommendations.getReccomendations(recommendations.critics,"Toby"))
+
+
