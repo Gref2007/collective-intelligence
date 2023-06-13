@@ -9,4 +9,6 @@ if __name__ == '__main__':
     print(recommendations.topMatches(recommendations.critics,"Toby", 3))
     print(recommendations.getReccomendations(recommendations.critics,"Toby"))
 
-
+    itemsSim = recommendations.calculateSimiliarItems(recommendations.critics)
+    print(itemsSim)
+    print(recommendations.getRecomendationItems(recommendations.critics, itemsSim, 'Toby'))
