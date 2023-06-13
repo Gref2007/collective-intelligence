@@ -123,6 +123,19 @@ def getRecomendationItems(prefs, itemMatch, user):
     return rankings
 
 
+def run():
+    print(critics["Lisa Rose"]["Lady in the Water"])
+    print(sim_distance(critics,"Mick LaSalle", "Jack Matthews"))
+    print(sim_person(critics, "Mick LaSalle", "Jack Matthews"))
+
+    print(topMatches(critics,"Toby", 3))
+    print(getReccomendations(critics,"Toby"))
+
+    itemsSim = calculateSimiliarItems(critics)
+    print(itemsSim)
+    print(getRecomendationItems(critics, itemsSim, 'Toby'))
+
+
 
 
 
