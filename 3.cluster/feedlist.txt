@@ -1,0 +1,137 @@
+1 - Activist Post
+https://www.activistpost.com/feed
+
+2 - Al Jazeera English
+https://www.aljazeera.com/xml/rss/all.xml
+
+5 - Antiwar.com
+http://original.antiwar.com/feed
+
+8 - Breitbart News
+http://feeds.feedburner.com/breitbart
+
+11 - CBC Top Stories
+http://rss.cbc.ca/lineup/topstories.xml
+
+16 - Daily Bell
+http://www.thedailybell.com/feed
+
+17 - Democracy Now
+https://www.democracynow.org/democracynow.rss
+
+18 - Eurasia Future
+http://www.eurasiafuture.com/feed
+
+22 - Fox News
+http://feeds.foxnews.com/foxnews/world
+
+23 - Geoengineering Watch
+http://www.geoengineeringwatch.org/feed/
+
+27 - Guardian
+http://www.guardian.co.uk/rss/1
+
+28 - HuffPost
+https://www.huffingtonpost.com/section/front-page/feed
+
+31 - Intercept
+https://theintercept.com/feed/?lang=en
+
+32 - Investigative Post
+http://www.investigativepost.org/feed
+
+33 - Janes 360
+http://www.janes.com/rss
+
+35 - JPost Breaking News
+http://www.jpost.com/Rss/RssFeedsHeadlines.aspx
+
+37 - Middle East Eye
+http://www.middleeasteye.net/rss
+
+38 - Middle East Monitor
+https://www.middleeastmonitor.com/feed
+
+39 - MintPress
+http://www.mintpressnews.com/feed
+
+42 - National Post
+http://nationalpost.com/feed
+
+43 - Natural News
+https://www.naturalnews.com/feedlyrss.xml
+
+44 - New Eastern Outlook
+https://journal-neo.org/feed/
+
+45 - New York Times
+http://feeds.nytimes.com/nyt/rss/HomePage
+
+47 - Paul Craig Robers
+https://www.paulcraigroberts.org/feed
+
+49 - Politico Defense
+http://www.politico.com/rss/defense.xml
+
+50 - Politico Economy
+http://www.politico.com/rss/economy.xml
+
+51 - Politoco Energy & Environment
+http://www.politico.com/rss/energy.xml
+
+56 - RT Daily News
+https://www.rt.com/rss
+
+59 - Sign of the Times
+https://www.sott.net/xml_engine/signs_rss
+
+60 - South China Morning Post
+http://www.scmp.com/rss/91/feed
+
+61 - Southfront News
+https://southfront.org/feed
+
+62 - Sputnik International
+https://sputniknews.com/export/rss2/archive/index.xml
+
+64 - Syria News
+http://www.syrianews.cc/feed
+
+65 - TASS
+http://tass.com/rss/v2.xml
+
+66 - The Corbett Report
+https://www.corbettreport.com/feed
+
+67 - The DURAN
+http://theduran.com/feed
+
+68 - The Last Refuge
+https://theconservativetreehouse.com/feed
+
+69 - The Truth Seeker
+http://truthseeker.se/feed
+
+72 - UNZ Review
+http://www.unz.com/xfeed/rss/all
+
+73 - UPI
+https://rss.upi.com/news/news.rss
+
+74 - Veterans Today
+https://www.veteranstoday.com/feed/
+
+75 - Waking Times
+http://www.wakingtimes.com/feed
+
+76 - We Are Change
+http://feeds.feedburner.com/wrc
+
+77 - Wired Top Stories
+http://feeds.wired.com/wired/index
+
+79 - Zero Hedge
+http://feeds.feedburner.com/zerohedge/feed
+
+80 - Yohhapt News
+https://en.yna.co.kr/RSS/news.xml
