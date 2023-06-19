@@ -58,6 +58,4 @@ def run():
             else: out.write("\t0")
         out.write("\n")
 
-run()
-
 
