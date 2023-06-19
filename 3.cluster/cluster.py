@@ -1,5 +1,5 @@
 import math
-
+import random
 
 
 def readfile(filename):
@@ -32,8 +32,8 @@ def person(v1, v2):
     den = math.sqrt((sum1Sq - pow(sum1, 2) / length) * (sum2Sq - pow(sum2, 2) / length))
     if den == 0: return 0
 
-    #val =  1.0 - num / den #НЕ правильно, сейчас num / den возвращает от -1 до 1. А должен как в книге от 0 до 1.
-    val =  1.0 - (((num / den)+1)/2) #ужали значине с [-1,1] до [0,1]
+    val =  1.0 - num / den #НЕ правильно, сейчас num / den возвращает от -1 до 1. А должен как в книге от 0 до 1.
+    #val =  1.0 - (((num / den)+1)/2) #ужали значине с [-1,1] до [0,1]
     return val
 
 class bicluster:
@@ -76,3 +76,46 @@ def hcluster(rows, distance=person):
         clust.append(newcluster)
 
     return clust[0]
+
+def rotatedata(data):
+    newdata = []
+    for i in range(len(data[0])):
+        newrow = [data[j][i] for j in range(len(data))]
+        newdata.append(newrow)
+    return newdata
+
+
+def kluster(rows,distance=person, k=4):
+    ranges = [(min([row[i] for row in rows]),max([row[i] for row in rows])) for i in range(len(rows[0])) ]
+
+    #random k centroid
+    clusters = [[random.random()*(ranges[i][1]-ranges[i][0])+ranges[i][0] for i in range(len(rows[0]))] for j in range(k)]
+
+    lastmatches = None
+    for t in range(100):
+        print("iteration №"+ str(t))
+        bestmatches = [[]for i in range(k)]
+
+        #find closest centroid
+        for j in range(len(rows)):
+            row = rows[j]
+            bestmatche = 0
+            for i in range(k):
+                d=distance(clusters[i],row)
+                if d < distance(clusters[bestmatche], row): bestmatche=i
+            bestmatches[bestmatche].append(j)
+
+        #if the same result
+        if bestmatches ==lastmatches:break
+        lastmatches=bestmatches
+
+        for i in range(k):
+            avgs=[0.0]*len(rows[0])
+            if len(bestmatches[i])>0:
+                for rowid in bestmatches[i]:
+                    for m in range(len(rows[rowid])):
+                        avgs[m]+=rows[rowid][m]
+                    for j in range(len(avgs)):
+                        avgs[j]/=len(bestmatches[i])
+                    clusters[i]=avgs
+    return bestmatches

@@ -37,7 +37,6 @@ def drawdendrogram (clust, labels, jpeg='cluster.jpg'):
 
     img.save(jpeg, "JPEG")
 
-
     drawnode(draw,clust,10,(h/2),scaling,labels, img)
 
     img.save(jpeg,"JPEG")
@@ -63,8 +62,13 @@ def drawnode(draw,clust,x,y,scaling, labels,img):
 
         img.save('cluster.jpg', "JPEG")
         drawnode(draw,clust.left,x+ll,top+h1/2, scaling,labels,img)
-        img.save('cluster.jpg', "JPEG")
         drawnode(draw, clust.right, x+ll, bottom - h2/2, scaling, labels,img)
-        img.save('cluster.jpg', "JPEG")
     else:
         draw.text((x+5,y-7),labels[clust.id],fill=(0,0,0))
+
+def printkcluster(kclust, labels=None):
+    for i in range(len(kclust)):
+        print(str(i)+"-"*10)
+        for j in range(len(kclust[i])):
+            print(labels[kclust[i][j]])
+
