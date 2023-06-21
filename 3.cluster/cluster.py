@@ -119,3 +119,51 @@ def kluster(rows,distance=person, k=4):
                         avgs[j]/=len(bestmatches[i])
                     clusters[i]=avgs
     return bestmatches
+
+def scaledown(data, distance=person, rate=0.01):
+    n=len(data)
+
+    realdist = [[distance(data[i], data[j])for j in range(n)] for i in range(n)]
+
+    outersum = 0.0
+
+    #randomly init position
+    loc = [[random.random(), random.random()] for i in range(n)]
+    fakedist = [[0.0 for j in range(n)]for i in range(n)]
+
+    lasterror=None
+    for m in range(1000):
+        #calculate Evclid distance
+        for i in range(n):
+            for j in range(n):
+                fakedist[i][j] = math.sqrt(sum([pow(loc[i][x]-loc[j][x],2) for x in range(len(loc[i]))]))
+
+        #move point
+        grad=[[0,0,0,0,] for i in range(n)]
+
+        totalerror = 0
+        for k in range(n):
+            for j in range(n):
+                if j==k: continue
+
+                errorterm = (fakedist[j][k]-realdist[j][k])/realdist[j][k]
+
+                grad[k][0]+=((loc[k][0]-loc[j][0])/fakedist[j][k])*errorterm
+                grad[k][1] += ((loc[k][1] - loc[j][1]) / fakedist[j][k]) * errorterm
+
+                totalerror +=abs(errorterm)
+
+        print(str(totalerror))
+
+        #if after move only worse, stop
+        if lasterror and lasterror<totalerror:break
+        lasterror = totalerror
+
+        for k in range(n):
+            loc[k][0]-=rate*grad[k][0]
+            loc[k][1] -= rate * grad[k][1]
+
+    return loc
+
+
+
