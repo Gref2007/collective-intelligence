@@ -8,6 +8,7 @@ import sqlite3
 ignorewords = {"the","of", "to","and", "a", "in", "is", "it"}
 
 class crawler:
+
     def __init__(self, dbname):
         self.con = sqlite3.connect(dbname)
 
@@ -102,6 +103,27 @@ class crawler:
                 self.dbcommit()
             pages=newpages
 
+    def calculatepagerank(self, iterations=20):
+        self.con.execute("drop table if exists pagerank")
+        self.con.execute("create table pagerank(urlid primary key, score)")
+        #in the start all pages have 1 rank
+        self.con.execute("insert into pagerank select rowid, 1.0 from urllist")
+        self.dbcommit()
+        t = self.con.execute("select * from link")
+
+        for i in range(iterations):
+            print(f"iteration {i}")
+            for (urlid,) in self.con.execute("select rowid from urllist"):
+                pr = 0.15
+                #go to every page whiche links to this
+                for (linker,) in self.con.execute(f"select distinct fromid from link where toid = {urlid:d}"):
+                    #get rank
+                    linkingpr = self.con.execute(f"select score from pagerank where urlid ={linker}").fetchone()[0]
+
+                    linkingcout = self.con.execute(f"select count(*) from link where fromid = {linker}").fetchone()[0]
+                    pr += 0.85*(linkingpr/linkingcout)
+                self.con.execute(f"update pagerank set score = {pr:f} where urlid = {urlid}")
+                self.dbcommit()
 
 
     def creatindextables(self):
@@ -159,10 +181,9 @@ class searcher:
     def getscoredlist(self, rows, wordids):
         totalscores = dict([(row[0],0) for row in rows])
 
-        weights =
-
-
-
+        weights =[(1.0, self.frequenctscore(rows)),
+               (1.0, self.locationscore(rows)),
+               (1.0, self.distancescore(rows)),]
 
         for (weight, scores) in weights:
             for url in totalscores:
