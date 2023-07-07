@@ -1,4 +1,6 @@
 import optimization
+import dorm
+import socialnetwork
 
 if __name__ == '__main__':
 
@@ -18,4 +20,18 @@ if __name__ == '__main__':
     optimization.printschedule(s)
     """
 
-    optimization.geneticoptimize(domain,optimization.schedulecost)
+    #optimization.geneticoptimize(domain,optimization.schedulecost)
+
+    """
+    s= optimization.randomoptimize(dorm.domain, dorm.dormcost)
+    print(dorm.dormcost(s))
+    s= optimization.geneticoptimize(dorm.domain, dorm.dormcost)
+    print(dorm.dormcost(s))
+    """
+
+
+    s = optimization.randomoptimize(socialnetwork.domain,socialnetwork.crosscount)
+    print(socialnetwork.crosscount(s))
+
+    #s = optimization.annealingoptimize(socialnetwork.domain, socialnetwork.crosscount, step=50)
+    socialnetwork.drawnetwork(s)
